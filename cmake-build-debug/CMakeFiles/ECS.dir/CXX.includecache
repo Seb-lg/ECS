@@ -1,0 +1,34 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+D:/ECS/ecs/Ecs.hpp
+unordered_map
+-
+vector
+-
+iostream
+-
+Entity.hpp
+D:/ECS/ecs/Entity.hpp
+ListComponent.hpp
+D:/ECS/ecs/ListComponent.hpp
+
+D:/ECS/ecs/Entity.hpp
+
+D:/ECS/ecs/ListComponent.hpp
+vector
+-
+Entity.hpp
+D:/ECS/ecs/Entity.hpp
+
+D:/ECS/main.cpp
+iostream
+-
+ecs/Ecs.hpp
+D:/ECS/ecs/Ecs.hpp
+
