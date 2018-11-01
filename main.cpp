@@ -6,6 +6,8 @@ int main() {
     ecs::Ecs oui;
     ID id = ecs::entity::Entity::getId();
 
+
+    oui.addComponent<int>(id, 9);
     auto non = oui.getComponentList<int>();
 
     for (auto &o : non) {
@@ -13,15 +15,7 @@ int main() {
         o++;
     }
 
-    oui.addComponent<int>(id, 9);
-    non = oui.getComponentList<int>();
-
-    for (auto &o : non) {
-        std::cout << o << std::endl;
-        o++;
-    }
-
-    non.emplace_back(13);
+    oui.deleteId(id);
 
     non = oui.getComponentList<int>();
 

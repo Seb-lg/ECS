@@ -1,8 +1,6 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/ECS.dir/ecs/Ecs.cpp.obj"
   "CMakeFiles/ECS.dir/ecs/Entity.cpp.obj"
   "CMakeFiles/ECS.dir/main.cpp.obj"
-  "CMakeFiles/ECS.dir/ecs/ListComponent.cpp.obj"
   "ECS.pdb"
   "ECS.exe"
   "ECS.exe.manifest"

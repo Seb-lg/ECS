@@ -56,24 +56,10 @@ include CMakeFiles/ECS.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/ECS.dir/flags.make
 
-CMakeFiles/ECS.dir/ecs/Ecs.cpp.obj: CMakeFiles/ECS.dir/flags.make
-CMakeFiles/ECS.dir/ecs/Ecs.cpp.obj: CMakeFiles/ECS.dir/includes_CXX.rsp
-CMakeFiles/ECS.dir/ecs/Ecs.cpp.obj: ../ecs/Ecs.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\ECS\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/ECS.dir/ecs/Ecs.cpp.obj"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\ECS.dir\ecs\Ecs.cpp.obj -c D:\ECS\ecs\Ecs.cpp
-
-CMakeFiles/ECS.dir/ecs/Ecs.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ECS.dir/ecs/Ecs.cpp.i"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\ECS\ecs\Ecs.cpp > CMakeFiles\ECS.dir\ecs\Ecs.cpp.i
-
-CMakeFiles/ECS.dir/ecs/Ecs.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ECS.dir/ecs/Ecs.cpp.s"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\ECS\ecs\Ecs.cpp -o CMakeFiles\ECS.dir\ecs\Ecs.cpp.s
-
 CMakeFiles/ECS.dir/ecs/Entity.cpp.obj: CMakeFiles/ECS.dir/flags.make
 CMakeFiles/ECS.dir/ecs/Entity.cpp.obj: CMakeFiles/ECS.dir/includes_CXX.rsp
 CMakeFiles/ECS.dir/ecs/Entity.cpp.obj: ../ecs/Entity.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\ECS\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/ECS.dir/ecs/Entity.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\ECS\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/ECS.dir/ecs/Entity.cpp.obj"
 	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\ECS.dir\ecs\Entity.cpp.obj -c D:\ECS\ecs\Entity.cpp
 
 CMakeFiles/ECS.dir/ecs/Entity.cpp.i: cmake_force
@@ -87,7 +73,7 @@ CMakeFiles/ECS.dir/ecs/Entity.cpp.s: cmake_force
 CMakeFiles/ECS.dir/main.cpp.obj: CMakeFiles/ECS.dir/flags.make
 CMakeFiles/ECS.dir/main.cpp.obj: CMakeFiles/ECS.dir/includes_CXX.rsp
 CMakeFiles/ECS.dir/main.cpp.obj: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\ECS\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/ECS.dir/main.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\ECS\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/ECS.dir/main.cpp.obj"
 	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\ECS.dir\main.cpp.obj -c D:\ECS\main.cpp
 
 CMakeFiles/ECS.dir/main.cpp.i: cmake_force
@@ -98,39 +84,21 @@ CMakeFiles/ECS.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ECS.dir/main.cpp.s"
 	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\ECS\main.cpp -o CMakeFiles\ECS.dir\main.cpp.s
 
-CMakeFiles/ECS.dir/ecs/ListComponent.cpp.obj: CMakeFiles/ECS.dir/flags.make
-CMakeFiles/ECS.dir/ecs/ListComponent.cpp.obj: CMakeFiles/ECS.dir/includes_CXX.rsp
-CMakeFiles/ECS.dir/ecs/ListComponent.cpp.obj: ../ecs/ListComponent.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\ECS\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/ECS.dir/ecs/ListComponent.cpp.obj"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\ECS.dir\ecs\ListComponent.cpp.obj -c D:\ECS\ecs\ListComponent.cpp
-
-CMakeFiles/ECS.dir/ecs/ListComponent.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ECS.dir/ecs/ListComponent.cpp.i"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\ECS\ecs\ListComponent.cpp > CMakeFiles\ECS.dir\ecs\ListComponent.cpp.i
-
-CMakeFiles/ECS.dir/ecs/ListComponent.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ECS.dir/ecs/ListComponent.cpp.s"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\ECS\ecs\ListComponent.cpp -o CMakeFiles\ECS.dir\ecs\ListComponent.cpp.s
-
 # Object files for target ECS
 ECS_OBJECTS = \
-"CMakeFiles/ECS.dir/ecs/Ecs.cpp.obj" \
 "CMakeFiles/ECS.dir/ecs/Entity.cpp.obj" \
-"CMakeFiles/ECS.dir/main.cpp.obj" \
-"CMakeFiles/ECS.dir/ecs/ListComponent.cpp.obj"
+"CMakeFiles/ECS.dir/main.cpp.obj"
 
 # External object files for target ECS
 ECS_EXTERNAL_OBJECTS =
 
-ECS.exe: CMakeFiles/ECS.dir/ecs/Ecs.cpp.obj
 ECS.exe: CMakeFiles/ECS.dir/ecs/Entity.cpp.obj
 ECS.exe: CMakeFiles/ECS.dir/main.cpp.obj
-ECS.exe: CMakeFiles/ECS.dir/ecs/ListComponent.cpp.obj
 ECS.exe: CMakeFiles/ECS.dir/build.make
 ECS.exe: CMakeFiles/ECS.dir/linklibs.rsp
 ECS.exe: CMakeFiles/ECS.dir/objects1.rsp
 ECS.exe: CMakeFiles/ECS.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=D:\ECS\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable ECS.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=D:\ECS\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable ECS.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\ECS.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

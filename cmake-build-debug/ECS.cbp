@@ -82,9 +82,6 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="D:/ECS/ecs/Ecs.cpp">
-			<Option target="ECS"/>
-		</Unit>
 		<Unit filename="D:/ECS/ecs/Ecs.hpp">
 			<Option target="ECS"/>
 		</Unit>
@@ -92,9 +89,6 @@
 			<Option target="ECS"/>
 		</Unit>
 		<Unit filename="D:/ECS/ecs/Entity.hpp">
-			<Option target="ECS"/>
-		</Unit>
-		<Unit filename="D:/ECS/ecs/ListComponent.cpp">
 			<Option target="ECS"/>
 		</Unit>
 		<Unit filename="D:/ECS/ecs/ListComponent.hpp">

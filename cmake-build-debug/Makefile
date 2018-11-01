@@ -122,33 +122,6 @@ ECS/fast:
 	$(MAKE) -f CMakeFiles\ECS.dir\build.make CMakeFiles/ECS.dir/build
 .PHONY : ECS/fast
 
-ecs/Ecs.obj: ecs/Ecs.cpp.obj
-
-.PHONY : ecs/Ecs.obj
-
-# target to build an object file
-ecs/Ecs.cpp.obj:
-	$(MAKE) -f CMakeFiles\ECS.dir\build.make CMakeFiles/ECS.dir/ecs/Ecs.cpp.obj
-.PHONY : ecs/Ecs.cpp.obj
-
-ecs/Ecs.i: ecs/Ecs.cpp.i
-
-.PHONY : ecs/Ecs.i
-
-# target to preprocess a source file
-ecs/Ecs.cpp.i:
-	$(MAKE) -f CMakeFiles\ECS.dir\build.make CMakeFiles/ECS.dir/ecs/Ecs.cpp.i
-.PHONY : ecs/Ecs.cpp.i
-
-ecs/Ecs.s: ecs/Ecs.cpp.s
-
-.PHONY : ecs/Ecs.s
-
-# target to generate assembly for a file
-ecs/Ecs.cpp.s:
-	$(MAKE) -f CMakeFiles\ECS.dir\build.make CMakeFiles/ECS.dir/ecs/Ecs.cpp.s
-.PHONY : ecs/Ecs.cpp.s
-
 ecs/Entity.obj: ecs/Entity.cpp.obj
 
 .PHONY : ecs/Entity.obj
@@ -175,33 +148,6 @@ ecs/Entity.s: ecs/Entity.cpp.s
 ecs/Entity.cpp.s:
 	$(MAKE) -f CMakeFiles\ECS.dir\build.make CMakeFiles/ECS.dir/ecs/Entity.cpp.s
 .PHONY : ecs/Entity.cpp.s
-
-ecs/ListComponent.obj: ecs/ListComponent.cpp.obj
-
-.PHONY : ecs/ListComponent.obj
-
-# target to build an object file
-ecs/ListComponent.cpp.obj:
-	$(MAKE) -f CMakeFiles\ECS.dir\build.make CMakeFiles/ECS.dir/ecs/ListComponent.cpp.obj
-.PHONY : ecs/ListComponent.cpp.obj
-
-ecs/ListComponent.i: ecs/ListComponent.cpp.i
-
-.PHONY : ecs/ListComponent.i
-
-# target to preprocess a source file
-ecs/ListComponent.cpp.i:
-	$(MAKE) -f CMakeFiles\ECS.dir\build.make CMakeFiles/ECS.dir/ecs/ListComponent.cpp.i
-.PHONY : ecs/ListComponent.cpp.i
-
-ecs/ListComponent.s: ecs/ListComponent.cpp.s
-
-.PHONY : ecs/ListComponent.s
-
-# target to generate assembly for a file
-ecs/ListComponent.cpp.s:
-	$(MAKE) -f CMakeFiles\ECS.dir\build.make CMakeFiles/ECS.dir/ecs/ListComponent.cpp.s
-.PHONY : ecs/ListComponent.cpp.s
 
 main.obj: main.cpp.obj
 
@@ -239,15 +185,9 @@ help:
 	@echo ... ECS
 	@echo ... edit_cache
 	@echo ... rebuild_cache
-	@echo ... ecs/Ecs.obj
-	@echo ... ecs/Ecs.i
-	@echo ... ecs/Ecs.s
 	@echo ... ecs/Entity.obj
 	@echo ... ecs/Entity.i
 	@echo ... ecs/Entity.s
-	@echo ... ecs/ListComponent.obj
-	@echo ... ecs/ListComponent.i
-	@echo ... ecs/ListComponent.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s

@@ -4,9 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "D:/ECS/ecs/Ecs.cpp" "D:/ECS/cmake-build-debug/CMakeFiles/ECS.dir/ecs/Ecs.cpp.obj"
   "D:/ECS/ecs/Entity.cpp" "D:/ECS/cmake-build-debug/CMakeFiles/ECS.dir/ecs/Entity.cpp.obj"
-  "D:/ECS/ecs/ListComponent.cpp" "D:/ECS/cmake-build-debug/CMakeFiles/ECS.dir/ecs/ListComponent.cpp.obj"
   "D:/ECS/main.cpp" "D:/ECS/cmake-build-debug/CMakeFiles/ECS.dir/main.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")

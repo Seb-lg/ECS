@@ -13,8 +13,6 @@ vector
 -
 iostream
 -
-Entity.hpp
-D:/ECS/ecs/Entity.hpp
 ListComponent.hpp
 D:/ECS/ecs/ListComponent.hpp
 
@@ -22,6 +20,8 @@ D:/ECS/ecs/Entity.hpp
 
 D:/ECS/ecs/ListComponent.hpp
 vector
+-
+functional
 -
 Entity.hpp
 D:/ECS/ecs/Entity.hpp

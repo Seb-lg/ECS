@@ -8,7 +8,6 @@
 #include <unordered_map>
 #include <vector>
 #include <iostream>
-#include "Entity.hpp"
 #include "ListComponent.hpp"
 
 namespace ecs{
@@ -19,13 +18,22 @@ namespace ecs{
 
         template<typename T>
         void addComponent(ID id, T component){
-            hidden::ListComponent<T>::get().addComponent(id, component);
+            _deleteIds[id].emplace_back(hidden::ListComponent<T>::get().addComponent(id, component));
         }
 
         template <typename T>
         std::vector<T> &getComponentList(){
             return hidden::ListComponent<T>::get().getComponentList();
         }
+
+        void deleteId(ID id) {
+            for (auto &deleting : _deleteIds[id])
+                deleting();
+            _deleteIds[id].clear();
+        }
+
+    private:
+        std::unordered_map<ID, std::vector<std::function<void()>>>  _deleteIds;
 
     };
 }
