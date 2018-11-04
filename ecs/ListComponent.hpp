@@ -6,6 +6,7 @@
 #define ECS_LISTCOMPONENT_HPP
 
 #include <vector>
+#include <unordered_map>
 #include <functional>
 #include "Entity.hpp"
 
@@ -19,22 +20,34 @@ namespace hidden {
             return listComponent;
         }
 
-        std::function<void()> addComponent(ID id, T component) {
+        template <typename ...Args>
+        std::function<void()> addComponent(ID id, Args... args) {
             _ids.emplace_back(id);
-            _component.emplace_back(component);
+            _component.push_back(T(args...));
             return ([id, this](){
-                int i = 0;
                 auto ids = this->_ids.begin();
-                for (ids; *ids != id; ids++, i++);
-
                 auto cpnts = this->_component.begin();
-                for (cpnts; i != 0; i--, cpnts++);
-                _component.erase(cpnts);
+                for (ids, cpnts; *ids != id && ids != _ids.end(); ids++, cpnts++);
+                if (ids != _ids.end()) {
+			_ids.erase(ids);
+			_component.erase(cpnts);
+		}
             });
         }
 
         std::vector<T> &getComponentList() {
             return _component;
+        }
+
+        std::vector<ID> &getIdsList() {
+            return _ids;
+        }
+
+        T &operator[] (ID id) {
+        	auto strtId = _ids.begin();
+        	auto strsCpnt = _component.begin();
+        	for (; *strtId != id && strtId != _ids.end(); strsCpnt++, strtId++);
+        	return *strsCpnt;
         }
 
     private:

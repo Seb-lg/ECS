@@ -1,28 +1,27 @@
 #include <iostream>
 #include "ecs/Ecs.hpp"
+#include "test/ComponentTest.hpp"
 
 int main() {
     std::cout << "Hello, World!" << std::endl;
-    ecs::Ecs oui;
     ID id = ecs::entity::Entity::getId();
 
 
-    oui.addComponent<int>(id, 9);
-    auto non = oui.getComponentList<int>();
+    ecs::Ecs::get().addComponent<int>(id, 9);
+    ecs::Ecs::get().addComponent<CpntTest>(id, std::string("JE SUIS UN TEST"), 9);
+    //oui.addComponent<std::string>(id, std::string("JE SUIS UN TEST"));
 
-    for (auto &o : non) {
-        std::cout << o << std::endl;
-        o++;
-    }
+    auto listss = ecs::Ecs::get().getComponentList<int>();
 
-    oui.deleteId(id);
+    for (auto o : listss)
+    	std::cout << o <<std::endl;
 
-    non = oui.getComponentList<int>();
+    ecs::Ecs::get().get<int>()[id]++;
 
-    for (auto & o : non) {
-        std::cout << o << std::endl;
-        o++;
-    }
+    listss = ecs::Ecs::get().getComponentList<int>();
+
+    for (auto o : listss)
+    	std::cout << o <<std::endl;
 
     return 0;
 }
