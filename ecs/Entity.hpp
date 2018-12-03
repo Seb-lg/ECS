@@ -10,7 +10,9 @@ using ID = unsigned long;
 namespace ecs { namespace entity {
         class Entity {
         public:
-            static ID getId();
+        	/// Get an unique id
+        	/// \return unique id
+        	static ID getId();
         };
 }}
 
