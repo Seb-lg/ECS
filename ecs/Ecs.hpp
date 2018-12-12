@@ -16,7 +16,7 @@ namespace ecs{
     class Ecs {
     public:
 
-        Ecs() {}
+        Ecs() = default;
 
         /// Get the thread's instance of the Ecs
         /// \return Ecs &ecs
@@ -31,7 +31,7 @@ namespace ecs{
         /// \return component map of type T
         template <typename T>
         static std::unordered_map<ID, T> &getComponentMap() {
-		return hidden::ListComponent<T>::get().getComponentMap();
+			return hidden::ListComponent<T>::get().getComponentMap();
         }
 
         /// Add a component of type T to an id
@@ -68,11 +68,10 @@ namespace ecs{
         template <typename ...Args>
         static std::vector<ID> filter() {
         	std::vector<ID> valableId;
-			for (auto it = get()._deleteIds.begin(); it != get()._deleteIds.end(); ++it)
-			{
-        		if (idHasComponents<Args...>(it->first))
-					valableId.emplace_back(it->first);
-			}
+		for (auto &it : get()._deleteIds) {
+        		if (idHasComponents<Args...>(it.first))
+					valableId.emplace_back(it.first);
+		}
 		return (valableId);
         }
 
@@ -80,32 +79,32 @@ namespace ecs{
         /// \tparam Args Types of component
         /// \param id id to check the component
         /// \return if the id has every components return true
-	template <typename ...Args>
-	static bool idHasComponents(ID id) {
-	    isIn<Args...> isin;
-	    return (isin(id));
-	}
+		template <typename ...Args>
+		static bool idHasComponents(ID id) {
+		    isIn<Args...> isin;
+		    return (isin(id));
+		}
 
-	/// Add an update wich will be called by priority from 0 to 100++
-	/// \param priority the priority od the update
-	/// \param function the update wich will be called
-	void addUpdate(int priority, std::function<void()> function) {
+		/// Add an update wich will be called by priority from 0 to 100++
+		/// \param priority the priority od the update
+		/// \param function the update wich will be called
+		void addUpdate(int priority, std::function<void()> function) {
     	    updates.emplace(priority, function);
-    	}
+        }
 
     	/// Clear every updates
-	void clearUpdates() {
-		updates.clear();
-	}
+		void clearUpdates() {
+			updates.clear();
+		}
 
-	/// Call every updates
-	void update () {
-   	    	for (auto &func : updates) {
-   		     	func.second();
-        	}
-    	}
+		/// Call every updates
+		void update () {
+			for (auto &func : updates) {
+				func.second();
+			}
+		}
 
-        std::unordered_map<ID, std::unordered_map<std::string, std::function<void()>>>  _deleteIds;
+		std::unordered_map<ID, std::unordered_map<std::string, std::function<void()>>>  _deleteIds;
     private:
         std::multimap<int, std::function<void()>>					updates;
 
