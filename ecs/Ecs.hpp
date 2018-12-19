@@ -10,7 +10,7 @@
 #include <algorithm>
 #include <map>
 #include <set>
-#include "ListComponent.hpp"
+#include "ComponentList.hpp"
 
 namespace ecs{
 	class Ecs {
@@ -31,7 +31,7 @@ namespace ecs{
 		/// \return component map of type T
 		template <typename T>
 		static std::unordered_map<ID, T> &getComponentMap() {
-			return hidden::ListComponent<T>::get().getComponentMap();
+			return hidden::ComponentList<T>::get().getComponentMap();
 		}
 
 		/// Add a component of type T to an id
@@ -41,7 +41,7 @@ namespace ecs{
 		/// \param args arguments to create the component
 		template<typename T, typename ...Args>
 		static void addComponent(ID id, Args... args){
-			get()._deleteIds[id][std::string(typeid(T).name())] = hidden::ListComponent<T>::get().addComponent(id, args...);
+			get()._deleteIds[id][std::string(typeid(T).name())] = hidden::ComponentList<T>::get().addComponent(id, args...);
 			get()._ids.emplace(id);
 		}
 
@@ -79,10 +79,10 @@ namespace ecs{
 		template <typename ...Args>
 		static std::vector<ID> filter() {
 			std::vector<ID> valableId;
-		for (auto &it : get()._deleteIds) {
+			for (auto &it : get()._deleteIds) {
 				if (idHasComponents<Args...>(it.first))
 					valableId.emplace_back(it.first);
-		}
+			}
 		return (valableId);
 		}
 
@@ -116,7 +116,7 @@ namespace ecs{
 		}
 
 		std::unordered_map<ID, std::unordered_map<std::string, std::function<void()>>>  _deleteIds;
-		std::set<ID>									 _ids;
+		std::set<ID>									_ids;
 	private:
 		std::multimap<int, std::function<void()>>				updates;
 
@@ -128,7 +128,7 @@ namespace ecs{
 		template <typename T>
 		struct isIn<T> {
 			bool operator() (ID id) {
-				auto &vec = hidden::ListComponent<T>::get().getComponentMap();
+				auto &vec = hidden::ComponentList<T>::get().getComponentMap();
 				return (vec.find(id) != vec.end());
 			}
 		};
@@ -137,7 +137,7 @@ namespace ecs{
 		struct isIn<T, Args...> {
 			bool operator() (ID id) {
 				isIn<Args...> isin;
-				auto &vec = hidden::ListComponent<T>::get().getComponentMap();
+				auto &vec = hidden::ComponentList<T>::get().getComponentMap();
 				return ((vec.find(id) != vec.end()) && isin(id));
 			}
 		};

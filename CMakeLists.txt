@@ -6,8 +6,16 @@ set(CMAKE_CXX_STANDARD 17)
 include_directories(ecs)
 
 add_executable(ECS
+        ecs/DataBank.hpp
         ecs/Ecs.hpp
         ecs/Entity.cpp
         ecs/Entity.hpp
-        main.cpp
-        ecs/ListComponent.hpp)
+        ecs/ComponentList.hpp
+        ecs/Time.cpp
+        ecs/Time.hpp
+        ecs/TimedEvent.cpp
+        ecs/TimedEvent.hpp
+        ecs/TimedEventAdmin.cpp
+        ecs/TimedEventAdmin.hpp
+
+        main.cpp)
