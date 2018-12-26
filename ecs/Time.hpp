@@ -18,7 +18,7 @@ enum class TimeUnit {
 	NanoSeconds
 };
 
-namespace ecs{
+namespace ecs {
 	class Time {
 	public:
 

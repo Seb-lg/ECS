@@ -9,7 +9,7 @@
 #include <functional>
 #include "Entity.hpp"
 
-namespace hidden {
+namespace ecs {
 	template <typename T>
 	class ComponentList {
 	public:
@@ -34,8 +34,8 @@ namespace hidden {
 			_ids.push_back(id);
 			std::sort(_ids.begin(), _ids.end());
 			return ([id](){
-				hidden::ComponentList<T>::get().getComponentMap().erase(id);
-				std::remove_if(hidden::ComponentList<T>::get().getIds().begin(), hidden::ComponentList<T>::get().getIds().end(), [id](ID const &d) {
+				ecs::ComponentList<T>::get().getComponentMap().erase(id);
+				std::remove_if(ecs::ComponentList<T>::get().getIds().begin(), ecs::ComponentList<T>::get().getIds().end(), [id](ID const &d) {
 					return 	d == id;
 				});
 			});

@@ -30,8 +30,8 @@ namespace ecs{
 		/// \tparam T component type
 		/// \return component map of type T
 		template <typename T>
-		static std::unordered_map<ID, T> &getComponentMap() {
-			return hidden::ComponentList<T>::get().getComponentMap();
+		std::unordered_map<ID, T> &getComponentMap() {
+			return ecs::ComponentList<T>::get().getComponentMap();
 		}
 
 		/// Add a component of type T to an id
@@ -40,14 +40,15 @@ namespace ecs{
 		/// \param id where the component will be added
 		/// \param args arguments to create the component
 		template<typename T, typename ...Args>
-		static void addComponent(ID id, Args... args){
-			get()._deleteIds[id][std::string(typeid(T).name())] = hidden::ComponentList<T>::get().addComponent(id, args...);
+		void addComponent(ID id, Args... args){
+			get()._deleteIds[id][std::string(typeid(T).name())] = ecs::ComponentList<T>::get().addComponent(id, args...);
 			get()._ids.emplace(id);
 		}
 
+
 		/// Delete every component of an id
 		/// \param id the ID to delete
-		static void deleteId(ID id) {
+		void deleteId(ID id) {
 			for (auto &del : get()._deleteIds[id]) {
 				del.second();
 			}
@@ -58,7 +59,7 @@ namespace ecs{
 		/// Return if the ID is fully deleted or not
 		/// \param id the ID to check
 		/// \return Does the ID exist
-		static bool isDeleted(ID id) {
+		bool isDeleted(ID id) {
 			return (get()._ids.find(id) != get()._ids.end());
 		}
 
@@ -66,7 +67,7 @@ namespace ecs{
 		/// \tparam T the type of the component to delete
 		/// \param id the id which will have the component T removed
 		template <typename T>
-		static void deleteComponentforId(ID id) {
+		void deleteComponentforId(ID id) {
 			get()._deleteIds[id][std::string(typeid(T).name())]();
 			get()._deleteIds[id].erase(std::string(typeid(T).name()));
 			if (get()._deleteIds[id].empty())
@@ -77,13 +78,13 @@ namespace ecs{
 		/// \tparam Args Types of components
 		/// \return vector of ids
 		template <typename ...Args>
-		static std::vector<ID> filter() {
+		std::vector<ID> filter() {
 			std::vector<ID> valableId;
 			for (auto &it : get()._deleteIds) {
 				if (idHasComponents<Args...>(it.first))
 					valableId.emplace_back(it.first);
 			}
-		return (valableId);
+			return (valableId);
 		}
 
 		/// Check if an id has the components given
@@ -91,7 +92,7 @@ namespace ecs{
 		/// \param id id to check the component
 		/// \return if the id has every components return true@Alex
 		template <typename ...Args>
-		static bool idHasComponents(ID id) {
+		bool idHasComponents(ID id) {
 			isIn<Args...> isin;
 			return (isin(id));
 		}
@@ -128,7 +129,7 @@ namespace ecs{
 		template <typename T>
 		struct isIn<T> {
 			bool operator() (ID id) {
-				auto &vec = hidden::ComponentList<T>::get().getComponentMap();
+				auto &vec = ecs::ComponentList<T>::get().getComponentMap();
 				return (vec.find(id) != vec.end());
 			}
 		};
@@ -137,7 +138,7 @@ namespace ecs{
 		struct isIn<T, Args...> {
 			bool operator() (ID id) {
 				isIn<Args...> isin;
-				auto &vec = hidden::ComponentList<T>::get().getComponentMap();
+				auto &vec = ecs::ComponentList<T>::get().getComponentMap();
 				return ((vec.find(id) != vec.end()) && isin(id));
 			}
 		};

@@ -1,40 +1,54 @@
 #include <iostream>
 #include <Time.hpp>
+#include <thread>
+#include <list>
+#include <cmath>
 #include "ecs/Ecs.hpp"
-
-struct test {
-        test() {
-                this->display = false;
-        }
-        test(bool dis, std::string &str) {
-            this->display = dis;
-            this->str = str;
-        }
-        bool display;
-        std::string str;
-};
+#include "Workers/ThreadPool.hpp"
 
 int main() {
-    std::cout << "Hello, World!" << std::endl;
-    ID id;
+	std::cout << "Hello, World!" << std::endl;
+	ID id;
 
-    for (int i = 0; i < 1100; i++) {
-    	id = ecs::entity::Entity::getId();
-    	ecs::Ecs::addComponent<std::string>(id, "oui");
-    	ecs::Ecs::addComponent<int>(id, 5);
-    }
+	long time;
+	auto &ecs = ecs::Ecs::get();
 
-    long time = ecs::Time::get(TimeUnit::MilliSeconds);
+	for (int i = 0; i < 1000; i++) {
+		id = ecs::entity::Entity::getId();
+		ecs.addComponent<int>(id, i);
+	}
 
-    for (int i = 0; i < 10000; i++) {
-    	auto oui = ecs::Ecs::filter<std::string, int>();
+	int x = 0;
 
-    	if (!oui[0])
-    		std::cout << "AH" << std::endl;
-    }
+	auto ids = ecs.filter<int>();
+	auto ints = ecs.getComponentMap<int>();
+	time = ecs::Time::get(TimeUnit::MilliSeconds);
 
-    std::cout << ecs::Time::get(TimeUnit::MilliSeconds) - time << std::endl;
+	for (auto id : ids) {
+		for (auto od : ids) {
+			std::this_thread::sleep_for(std::chrono::nanoseconds(100));
+		}
+	}
 
+	std::cout << ecs::Time::get(TimeUnit::MilliSeconds) - time << " " << x << std::endl;
+	x = 0;
 
-    return 0;
+	time = ecs::Time::get(TimeUnit::MilliSeconds);
+
+	ThreadPool<std::pair<ID,ID>> pool([&x, &ints](std::pair<ID, ID> check) {
+		std::this_thread::sleep_for(std::chrono::nanoseconds(100));
+	}, 4);
+
+	for (auto id : ids) {
+		pool.lockWork();
+		for (auto od : ids) {
+			pool.addTask(std::pair<ID, ID>(id, od));
+			//x++;
+		}
+		pool.unlockWork();
+		while (!pool.isDone());
+	}
+	std::cout << ecs::Time::get(TimeUnit::MilliSeconds) - time << " " << x << std::endl;
+
+	return 0;
 }

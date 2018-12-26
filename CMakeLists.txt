@@ -18,4 +18,9 @@ add_executable(ECS
         ecs/TimedEventAdmin.cpp
         ecs/TimedEventAdmin.hpp
 
+        Workers/ThreadPool.cpp
+        Workers/ThreadPool.hpp
         main.cpp)
+
+find_package (Threads)
+target_link_libraries (ECS ${CMAKE_THREAD_LIBS_INIT})
